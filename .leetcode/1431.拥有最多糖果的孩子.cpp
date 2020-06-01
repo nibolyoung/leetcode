@@ -8,16 +8,16 @@
 class Solution {
 public:
     vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
-        vector<bool> s;
-        int max=candies[0];
-        for(auto c:candies){
-            if(max<c)  max=c;
+        int maxNum = 0;
+        vector<bool> rtn;
+        for(int i=0;i<candies.size();i++){
+            if(candies[i]>maxNum)  maxNum = candies[i];
         }
-        for(auto c:candies){
-            if(c+extraCandies>=max)  s.push_back(true);
-            else s.push_back(false);
+        for(int i=0;i<candies.size();i++){
+            if(candies[i]+extraCandies >= maxNum)  rtn.push_back(true);
+            else  rtn.push_back(false); 
         }
-        return s;
+        return rtn;
     }
 };
 // @lc code=end
